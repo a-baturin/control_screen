@@ -1,0 +1,15 @@
+#!/bin/sh /etc/rc.common
+ 
+START=10
+STOP=15
+ 
+start() {        
+        echo start
+	. /root/control_screen.sh &>/dev/null &
+}
+
+stop() {
+        echo stop
+        kill -9 `ps | grep "\.d\/control_screen" | grep -Eo -m 1 "^ *[0-9]*"`
+	fast-gpio set 19 0
+}

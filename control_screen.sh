@@ -37,7 +37,7 @@ do
                                         mkdir -p /var/lib/domoticz/
                                         rm /var/lib/domoticz/*.db-shm
                                         rm /var/lib/domoticz/*.db-wal
-                                        cp ~/domoticz-bkp/*.db /var/lib/domoticz/
+                                        cp /root/domoticz-bkp/*.db /var/lib/domoticz/
                                         /etc/init.d/domoticz start
                                         oled-exp cursor 1,0 write "Domoticz reload end"
                                         sleep 3

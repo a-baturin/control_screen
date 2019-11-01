@@ -9,8 +9,7 @@ oled-exp dim on
 
 while true
 do
-        response=`fast-gpio read 18`
-        status=${response: -1}
+        status=$(fast-gpio read 18 | awk '{ print $4 }')
         if [[ "$status" -eq "1" ]]
         then
                 oled-exp -c
@@ -22,8 +21,7 @@ do
                 do
                         t=$(( t + 1 ))
                         sleep 1
-                        response=`fast-gpio read 18`
-                        status=${response: -1}
+                        status=$(fast-gpio read 18 | awk '{ print $4 }')
                         if [[ "$status" -eq "1" ]]
                         then
                                 t=0
